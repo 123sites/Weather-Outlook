@@ -2,18 +2,16 @@
 ## Description ✏️
 
 - Acceptance Criteria
-I made an online daily planner for the work day schedule from 9 am to 5 pm.  Below is a list of its features.
+I made a weather dashboard that would run in the browser and feature dynamically updated HTML and CSS.  It shows the weather outlook for multiple cities, so anyone using it could plan a trip accordingly.
 
-1) Open the planner, the current day is displayed at the top of the calendar.
-2) Scroll down, presented with timeblocks by business time.
-3) Timeblocks for that day color-coded, past, present, future.
-4) Click into a timeblock, can enter an event.
-5) Click save button for that timeblock, event text saved to LS.
-6) When I refresh the page, saved events are there.
-
-- Additional features:
-1) I added that the save button changes color, while hovering on it.
-2) Also, while on a given day, you will see that the box you are on has a solid line.  The other boxes have dashed lines, so you know where you are on your planner.
+1) It has a weather dashoard with form inputs.
+2) When searching for a city, there's current and future conditions.
+3) That city is added to the search history.
+4) When viewing current weather contions for that city it has the city name, date, 
+   and icon representation of weather conditions, temperature, humidity, and wind speed.
+5) Future weather conditions show: A 5-day forecast that displays the date, 
+   an icon representation of weather conditions, the temp., wind speed, & humidty.
+6) When clicking onto a city in the search history, there's current and future conditions.
 
 ## Installation 🔑
 
@@ -21,7 +19,7 @@ There weren't any installations with this project.
 You can find the link to the repository at:
 [Repository link]()
 
-The link to the WorkDayPlanner is at:
+The link to the Weather-Outlook-For-Travel is at:
 [Work-Day-Planner Link]()
 
 ## Screenshots 🎯
@@ -44,5 +42,3 @@ So far, I have the Pull Shark and Yolo badges on GitHub.
 
 ## ⭐ Features ⭐ ✍
 
-1) This application adapts to different screen sizes. 
-2) Additional features are listed at the top, under "Description."
