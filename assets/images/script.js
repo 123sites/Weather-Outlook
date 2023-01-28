@@ -11,7 +11,11 @@
 //    an icon representation of weather conditions, the temp., wind speed, & humidty.
 // 6) When clicking onto a city in the search history, there's current and future conditions.
 
+
+
+
 // var
 
 // functions
 
+// local storage
