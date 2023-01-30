@@ -6,8 +6,26 @@ h1 {
   letter-spacing: 3px;
 }
 
+h3 {
+  color: black, bold;
+  font-family: 'Nunito Sans', sans-serif!important;
+} 
+
+h1, h2, h4, h5, p {
+  font-family: 'Nunito Sans', sans-serif!important;
+  color: #fafcee;
+}
+
 .navbar {
   height: 125px;
+}
+
+/* button {
+  
+} */
+
+.cityName {
+  font-weight: bold!important;
 }
 
 #weatherContent {
@@ -15,7 +33,7 @@ h1 {
 }
 
 #weather {
-  background-color: #48c4cd!important;
+  background-color: rgb(235, 237, 222)!important;
 }
 
 #cityInfo,
@@ -40,11 +58,6 @@ li {
 
 #searchHistory li {
   background-color: #7d98ac;
-  color: #fafcee;
-}
-
-h1, h2, h3, h4, h5, p {
-  font-family: 'Nunito Sans', sans-serif!important;
   color: #fafcee;
 }
 
