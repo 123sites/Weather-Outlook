@@ -16,6 +16,14 @@ h1, h2, h4, h5, p {
   color: #fafcee;
 }
 
+h4 {
+  font-size: 2rem;
+  padding: 1rem 0rem 1rem 0rem;
+}
+
+.form-control {
+  padding: .75rem 1rem;
+}
 .navbar {
   height: 125px;
 }
@@ -26,6 +34,7 @@ h1, h2, h4, h5, p {
 
 .cityName {
   font-weight: bold!important;
+  height: 5rem;
 }
 
 #weatherContent {
