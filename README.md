@@ -20,7 +20,7 @@ You can find the link to the repository at:
 [Repository link]()
 
 The link to the Weather-Outlook-For-Travel is at:
-[Work-Day-Planner Link]()
+[5-Day-Weather-Outlook Link]()
 
 ## GIF 🎯
 <!-- ****************REDO THIS GIF LINK************* -->
@@ -33,7 +33,7 @@ When I had trouble with this project, I first tried to problem-solve it myself. 
 ## License 📝
 
 The MIT license is in the GitHub repository.  
-[MIT License](https://github.com/123sites/Weather-Outlook-For-Travel/blob/main/LICENSE)
+[MIT License](https://github.com/123sites/5-Day-Weather-Outlook/blob/main/LICENSE)
 
 ## Badges 🏆
 
