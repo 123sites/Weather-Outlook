@@ -14,6 +14,10 @@
 //     * Uses the OpenWeather API to retrieve weather data.
 //     * Uses `localStorage` to store persistent data.
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 // var
 var apiKey = "f5ccdbcb01401feaa8efc63bcac3649b"
 var today = moment().format('L');
@@ -37,13 +41,9 @@ function current(city) {
     var iconCode = cityWeather.weather[0].icon;
     var iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
 
-    // WHEN I view current weather conditions for that city
-    // THEN I am presented with the city name
-    // the date
-    // an icon representation of weather conditions
-    // the temperature
-    // the humidity
-    // the wind speed
+    // When get current weather conditions for that city,
+    // See city name, date, & icon representation of weather conditions:
+    // temp., humidity, & wind speed
     var currentCity = $(`
         <h2 id="currentCity">
             ${cityWeather.name} ${today} <img src="${iconURL}" alt="${cityWeather.weather[0].description}" />
