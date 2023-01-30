@@ -1,4 +1,4 @@
-# Weather-Outlook-For-Travel
+# 5-Day-Weather-Outlook
 ## Description ✏️
 
 - Acceptance Criteria
@@ -22,9 +22,9 @@ You can find the link to the repository at:
 The link to the Weather-Outlook-For-Travel is at:
 [Work-Day-Planner Link]()
 
-## Screenshots 🎯
-
-[Screenshot]()
+## GIF 🎯
+<!-- ****************REDO THIS GIF LINK************* -->
+[GIF](https://watch.screencastify.com/v/pHjvT8llCa1rI7agtfmq)
 
 ## Credits 👈
 
