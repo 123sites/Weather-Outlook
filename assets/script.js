@@ -27,7 +27,6 @@ var search = [];
 function current(city) {
   // q parameter: city name, state code and country code.....
   // var queryURL = 
-  // `api.openweathermap.org/data/2.5/forecast?${city}lat=44.34&lon=10.99&appid=${f5ccdbcb01401feaa8efc63bcac3649b}`  
   `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   $.ajax({
     url: queryURL,
