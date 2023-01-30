@@ -20,6 +20,7 @@
 
 // var
 var apiKey = "f5ccdbcb01401feaa8efc63bcac3649b"
+// var today = dayjs();
 var today = moment().format('L');
 var search = [];
 
@@ -37,7 +38,7 @@ function current(city) {
     
     $("#weather").css("display", "block");
     // clears-out the information
-    $("#cityInfo").empty();
+    $("#cityDetail").empty();
        
     var iconCode = cityWeatherResponse.weather[0].icon;
     var iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
@@ -116,8 +117,8 @@ $.ajax({
             humidity: futureResponse.daily[i].humidity
         };
 
-        var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
-        var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
+        var currDate = moment.unix(cityDetail.date).format("MM/DD/YYYY");
+        var iconURL = `<img src="https://openweathermap.org/img/w/${cityDetail.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
 
         // Displays the date, an icon representation of weather conditions
         // with the temperature & humidity
@@ -127,8 +128,8 @@ $.ajax({
                     <div class="card-body">
                         <h5>${currDate}</h5>
                         <p>${iconURL}</p>
-                        <p>Temp: ${cityInfo.temp} °F</p>
-                        <p>Humidity: ${cityInfo.humidity}\%</p>
+                        <p>Temp: ${cityDetail.temp} °F</p>
+                        <p>Humidity: ${cityDetail.humidity}\%</p>
                     </div>
                 </div>
             <div>
@@ -140,6 +141,8 @@ $.ajax({
 }
 
 // add on click event listener 
+// jQuery .on that wires-up a click handler, when it does not exist yet.
+// on "click, it will run "function(event)..."
 $("#searchBtn").on("click", function(event) {
 event.preventDefault();
 
@@ -154,6 +157,7 @@ if (!searchHistory.includes(city)) {
     $("#searchHistory").append(searchedCity);
 };
 
+// Below stores the data
 // localStorage & searchHistory
 localStorage.setItem("city", JSON.stringify(searchHistory));
 console.log(searchHistory);
@@ -161,12 +165,14 @@ console.log(searchHistory);
 
 // When click city in search history = current & future conditions for it.
 $(document).on("click", ".list", function() {
+// retrieves the text onclick
 var city = $(this).text();
 current(city);
 });
 
 // When open the weather dashboard = last searched city forecast
 $(document).ready(function() {
+// Retrieves the "city" data an stores it into localStorage:
 var searchHistoryArr = JSON.parse(localStorage.getItem("city"));
 
 if (searchHistoryArr !== null) {
