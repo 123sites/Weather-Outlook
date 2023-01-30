@@ -25,7 +25,7 @@ var today = moment().format('L');
 var search = [];
 
 // functions
-function current(city) {
+function currentCondition(city) {
   // q parameter: city name, state code and country code.....
   // var queryURL = 
   `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
@@ -41,7 +41,9 @@ function current(city) {
     $("#cityDetail").empty();
        
     var iconCode = cityWeatherResponse.weather[0].icon;
-    var iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
+    var iconURL = `(image)`;
+    
+    // document.getElementById("icon").src = "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
 
     // When get current weather conditions for that city,
     // See city name, date, & icon representation of weather conditions:
@@ -57,11 +59,56 @@ function current(city) {
 
     $("#cityInfo").append(currentCity);
 
+    // function for the future condition
+function futureCondition(lat, lon) {
+
+    // 5-day forecast
+    var futureURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
+    
+    $.ajax({
+        url: futureURL,
+        method: "GET"
+    }).then(function(futureResponse) {
+        console.log(futureResponse);
+        $("#fiveDay").empty();
+        
+        for (let i = 1; i < 6; i++) {
+            var cityInfo = {
+                date: futureResponse.daily[i].dt,
+                icon: futureResponse.daily[i].weather[0].icon,
+                temp: futureResponse.daily[i].temp.day,
+                humidity: futureResponse.daily[i].humidity
+            };
+    icon
+            var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
+            // ADD IMAGE
+            var iconURL = `< alt="${futureResponse.daily[i].weather[0].main}" />`;
+    
+            // Displays the date, an icon representation of weather conditions
+            // with the temperature & humidity
+            var futureCard = $(`
+                <div class="pl-3">
+                    <div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;>
+                        <div class="card-body">
+                            <h5>${currDate}</h5>
+                            <p>${iconURL}</p>
+                            <p>Temp: ${cityInfo.temp} °F</p>
+                            <p>Humidity: ${cityInfo.humidity}\%</p>
+                        </div>
+                    </div>
+                <div>
+            `);
+    
+            $("#fiveDay").append(futureCard);
+        }
+    }); 
+    }
+
     // UV index
     var lat = cityWeatherResponse.coord.lat;
     var lon = cityWeatherResponse.coord.lon;
     var uviQueryURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-i
+
     $.ajax({
         url: uviQueryURL,
         method: "GET"
@@ -90,55 +137,12 @@ i
         } else if (uvIndex >= 8 && uvIndex <= 10) {
             $("#uvIndexColor").css("background-color", "#red").css("color", "white");
         } else {
-            $("#uvIndexColor").css("background-color", "#purple").css("color", "white"); 
+            $("#uvIndexColor").css("background-color", "#violet").css("color", "white"); 
         };  
     });
 });
 }
 
-// function for the future condition
-function futureCondition(lat, lon) {
-
-// 5-day forecast
-var futureURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
-
-$.ajax({
-    url: futureURL,
-    method: "GET"
-}).then(function(futureResponse) {
-    console.log(futureResponse);
-    $("#fiveDay").empty();
-    
-    for (let i = 1; i < 6; i++) {
-        var cityInfo = {
-            date: futureResponse.daily[i].dt,
-            icon: futureResponse.daily[i].weather[0].icon,
-            temp: futureResponse.daily[i].temp.day,
-            humidity: futureResponse.daily[i].humidity
-        };
-
-        var currDate = moment.unix(cityDetail.date).format("MM/DD/YYYY");
-        var iconURL = `<img src="https://openweathermap.org/img/w/${cityDetail.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
-
-        // Displays the date, an icon representation of weather conditions
-        // with the temperature & humidity
-        var futureCard = $(`
-            <div class="pl-3">
-                <div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;>
-                    <div class="card-body">
-                        <h5>${currDate}</h5>
-                        <p>${iconURL}</p>
-                        <p>Temp: ${cityDetail.temp} °F</p>
-                        <p>Humidity: ${cityDetail.humidity}\%</p>
-                    </div>
-                </div>
-            <div>
-        `);
-
-        $("#fiveDay").append(futureCard);
-    }
-}); 
-}
 
 // add on click event listener 
 // jQuery .on that wires-up a click handler, when it does not exist yet.
@@ -147,38 +151,38 @@ $("#searchBtn").on("click", function(event) {
 event.preventDefault();
 
 // input is here???
-var city = $("#cityName").val().trim();
-current(city);
-if (!searchHistory.includes(city)) {
-    searchHistory.push(city);
+var city = $("#enterCity").val().trim();
+currentCondition(city);
+if (!searchHistoryList.includes(city)) {
+    searchHistoryList.push(city);
     var searchedCity = $(`
         <li class="list">${city}</li>
         `);
-    $("#searchHistory").append(searchedCity);
+    $("#searchHistoryList").append(searchedCity);
 };
 
 // Below stores the data
 // localStorage & searchHistory
-localStorage.setItem("city", JSON.stringify(searchHistory));
-console.log(searchHistory);
+localStorage.setItem("city", JSON.stringify(searchHistoryList));
+console.log(searchHistoryList);
 });
 
 // When click city in search history = current & future conditions for it.
 $(document).on("click", ".list", function() {
 // retrieves the text onclick
 var city = $(this).text();
-current(city);
+currentCondition(city);
 });
 
 // When open the weather dashboard = last searched city forecast
 $(document).ready(function() {
 // Retrieves the "city" data an stores it into localStorage:
-var searchHistoryArr = JSON.parse(localStorage.getItem("city"));
+var shArr = JSON.parse(localStorage.getItem("city"));
 
-if (searchHistoryArr !== null) {
-    var lastSearchedIndex = searchHistoryArr.length - 1;
-    var lastSearchedCity = searchHistoryArr[lastSearchedIndex];
-    current(lastSearchedCity);
+if (shArr !== null) {
+    var lastSearchedIndex = shArr.length - 1;
+    var lastSearchedCity = shArr[lastSearchedIndex];
+    currentCondition(lastSearchedCity);
     console.log(`Last searched city: ${lastSearchedCity}`);
 }
 });
