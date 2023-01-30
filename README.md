@@ -2,7 +2,7 @@
 ## Description ✏️
 
 - Acceptance Criteria
-I made a weather dashboard that would run in the browser and feature dynamically updated HTML and CSS.  It shows the weather outlook for multiple cities, so anyone using it could plan a trip accordingly.
+I made a weather dashboard that would run in the browser and feature dynamically updated HTML and CSS.  It shows the weather outlook for multiple cities, so anyone using it could plan a trip accordingly.  I used [OpenWeather API](https://openweathermap.org/api) to get the weather information and used local storage to store the information.
 
 1) It has a weather dashoard with form inputs.
 2) When searching for a city, there's current and future conditions.

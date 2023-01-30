@@ -30,7 +30,7 @@ function current(city) {
   `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   $.ajax({
     // url: queryURL,
-    ftech(queryURL)
+    {fetch(queryURL)
     // method: "GET"
 }).then(function(cityWeatherResponse) {
     console.log(cityWeatherResponse);
