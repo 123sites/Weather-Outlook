@@ -22,7 +22,7 @@ You can find the link to the repository at:
 The link to the Weather-Outlook-For-Travel is at:
 [5-Day-Weather-Outlook Link]()
 
-## GIF 🎯
+## GIF Demonstration of How it Works 🎯
 <!-- ****************REDO THIS GIF LINK************* -->
 [GIF](https://watch.screencastify.com/v/pHjvT8llCa1rI7agtfmq)
 

@@ -29,13 +29,14 @@ function current(city) {
   // var queryURL = 
   `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   $.ajax({
-    // url: queryURL,
-    {fetch(queryURL)
-    // method: "GET"
+    url: queryURL,
+    // {fetch(queryURL)
+    method: "GET"
 }).then(function(cityWeatherResponse) {
     console.log(cityWeatherResponse);
     
     $("#weather").css("display", "block");
+    // clears-out the information
     $("#cityInfo").empty();
        
     var iconCode = cityWeatherResponse.weather[0].icon;
@@ -57,7 +58,7 @@ function current(city) {
 
     // UV index
     var lat = cityWeatherResponse.coord.lat;
-    var lon = cityWeatherResponse.coord.long;
+    var lon = cityWeatherResponse.coord.lon;
     var uviQueryURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 i
     $.ajax({
@@ -78,6 +79,7 @@ i
         futureCondition(lat, lon);
 
         // UV conditions, by color
+        // https://en.wikipedia.org/wiki/Ultraviolet_index#:~:text=A%20UV%20index%20reading%20of,broad%20spectrum%20SPF%2030%2B%20sunscreen.&text=A%20UV%20index%20reading%20of%206%20to%207%20means%20high,harm%20from%20unprotected%20sun%20exposure.
         if (uvIndex >= 0 && uvIndex <= 2) {
             $("#uvIndexColor").css("background-color", "#green").css("color", "white");
         } else if (uvIndex >= 3 && uvIndex <= 5) {
@@ -141,6 +143,7 @@ $.ajax({
 $("#searchBtn").on("click", function(event) {
 event.preventDefault();
 
+// input is here???
 var city = $("#cityName").val().trim();
 current(city);
 if (!searchHistory.includes(city)) {
@@ -151,6 +154,7 @@ if (!searchHistory.includes(city)) {
     $("#searchHistory").append(searchedCity);
 };
 
+// localStorage & searchHistory
 localStorage.setItem("city", JSON.stringify(searchHistory));
 console.log(searchHistory);
 });
