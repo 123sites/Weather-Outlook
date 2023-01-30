@@ -142,7 +142,7 @@ $.ajax({
 $("#searchBtn").on("click", function(event) {
 event.preventDefault();
 
-var city = $("#enterCity").val().trim();
+var city = $("#cityName").val().trim();
 current(city);
 if (!searchHistory.includes(city)) {
     searchHistory.push(city);
