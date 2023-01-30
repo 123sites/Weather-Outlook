@@ -29,15 +29,16 @@ function current(city) {
   // var queryURL = 
   `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   $.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function(cityWeather) {
-    console.log(cityWeather);
+    // url: queryURL,
+    ftech(queryURL)
+    // method: "GET"
+}).then(function(cityWeatherResponse) {
+    console.log(cityWeatherResponse);
     
     $("#weather").css("display", "block");
     $("#cityInfo").empty();
        
-    var iconCode = cityWeather.weather[0].icon;
+    var iconCode = cityWeatherResponse.weather[0].icon;
     var iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
 
     // When get current weather conditions for that city,
@@ -45,20 +46,20 @@ function current(city) {
     // temp., humidity, & wind speed
     var currentCity = $(`
         <h2 id="currentCity">
-            ${cityWeather.name} ${today} <img src="${iconURL}" alt="${cityWeather.weather[0].description}" />
+            ${cityWeatherResponse.name} ${today} <img src="${iconURL}" alt="${cityWeatherResponse.weather[0].description}" />
         </h2>
-        <p>Temperature: ${cityWeather.main.temp} °F</p>
-        <p>Humidity: ${cityWeather.main.humidity}\%</p>
-        <p>Wind Speed: ${cityWeather.wind.speed} MPH</p>
+        <p>Temperature: ${cityWeatherResponse.main.temp} °F</p>
+        <p>Humidity: ${cityWeatherResponse.main.humidity}\%</p>
+        <p>Wind Speed: ${cityWeatherResponse.wind.speed} MPH</p>
     `);
 
     $("#cityInfo").append(currentCity);
 
     // UV index
-    var lat = cityWeather.coord.lat;
-    var lon = cityWeather.coord.long;
+    var lat = cityWeatherResponse.coord.lat;
+    var lon = cityWeatherResponse.coord.long;
     var uviQueryURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-
+i
     $.ajax({
         url: uviQueryURL,
         method: "GET"
