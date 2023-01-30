@@ -1,2 +1,59 @@
-/* font-family: 'Inter', sans-serif;
-font-family: 'Nunito Sans', sans-serif; */
+/* font-family: 'Inter', sans-serif; */
+/* font-family: 'Nunito Sans', sans-serif; */
+h1 {
+  font-size: 50px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #f8f8ff;
+}
+
+#weatherContent {
+  display: none;
+}
+
+.navbar {
+  height: 150px;
+}
+
+#cityDetail,
+#uvIndexColor,
+li {
+  color: #4D4F53;
+}
+
+#searchResults,
+#cityDetail,
+.card {
+  background-color: #3aa7d2!important;
+}
+
+#searchResults {
+  height: 100vh;
+}
+
+#fiveDay .card {
+  border: 1px solid white;
+}
+
+#searchHistory li {
+  background-color: #97A6A4;
+  color: #f8f8ff;
+}
+
+p {
+  color: #D9B779;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Nunito Sans', sans-serif!important;
+}
+
+h2, h3, h4, h5 {
+  color: #f8f8ff;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif!important;
+  background-color: #97A6A4;
+}
+
