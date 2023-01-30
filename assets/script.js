@@ -14,9 +14,9 @@
 //     * Uses the OpenWeather API to retrieve weather data.
 //     * Uses `localStorage` to store persistent data.
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config()
+// }
 
 // var
 var apiKey = "f5ccdbcb01401feaa8efc63bcac3649b"
@@ -93,10 +93,10 @@ function current(city) {
 });
 }
 
-// function for future condition
+// function for the future condition
 function futureCondition(lat, lon) {
 
-// THEN I am presented with a 5-day forecast
+// 5-day forecast
 var futureURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
 
 $.ajax({
@@ -117,10 +117,8 @@ $.ajax({
         var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
         var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
 
-        // displays the date
-        // an icon representation of weather conditions
-        // the temperature
-        // the humidity
+        // Displays the date, an icon representation of weather conditions
+        // with the temperature & humidity
         var futureCard = $(`
             <div class="pl-3">
                 <div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;>
@@ -157,15 +155,13 @@ localStorage.setItem("city", JSON.stringify(searchHistory));
 console.log(searchHistory);
 });
 
-// WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
+// When click city in search history = current & future conditions for it.
 $(document).on("click", ".list", function() {
-var listCity = $(this).text();
-current(listCity);
+var city = $(this).text();
+current(city);
 });
 
-// WHEN I open the weather dashboard
-// THEN I am presented with the last searched city forecast
+// When open the weather dashboard = last searched city forecast
 $(document).ready(function() {
 var searchHistoryArr = JSON.parse(localStorage.getItem("city"));
 
