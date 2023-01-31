@@ -45,14 +45,14 @@ h4 {
   background-color: rgb(235, 237, 222)!important;
 }
 
-#citydetail,
+#cityInfo,
 #uvIndexColor,
 li {
   color: #0e0a2b;
 }
 
 #searchResults,
-#cityDetail
+#cityInfo
 .card {
   background-color: #3aa7d2!important;
 }
