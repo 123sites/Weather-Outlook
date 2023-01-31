@@ -147,22 +147,22 @@ function currentCondition(city) {
 // on "click, it will run "function(event)..."
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
-    var searchHistoryList = JSON.parse(localStorage.getItem("city"))||[]
+    var searchHistory = JSON.parse(localStorage.getItem("city"))||[]
     // input is here???
     var city = $("#enterCity").val().trim();
     currentCondition(city);
-    if (!searchHistoryList.includes(city)) {
-        searchHistoryList.push(city);
+    if (!searchHistory.includes(city)) {
+        searchHistory.push(city);
         var searchedCity = $(`
         <li class="list">${city}</li>
         `);
-        $("#searchHistoryList").append(searchedCity);
+        $("#searchHistory").append(searchedCity);
     };
 
     // Below stores the data
     // localStorage & searchHistory
-    localStorage.setItem("city", JSON.stringify(searchHistoryList));
-    console.log(searchHistoryList);
+    localStorage.setItem("city", JSON.stringify(searchHistory));
+    console.log(searchHistory);
 });
 
 // When click city in search history = current & future conditions for it.

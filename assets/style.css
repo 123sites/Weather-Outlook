@@ -6,12 +6,12 @@ h1 {
   letter-spacing: 3px;
 }
 
-h3 {
+h3, h2 {
   color: black, bold;
   font-family: 'Nunito Sans', sans-serif!important;
 } 
 
-h1, h2, h4, h5, p {
+h1, h4, h5, p {
   font-family: 'Nunito Sans', sans-serif!important;
   color: #fafcee;
 }
@@ -21,6 +21,12 @@ h4 {
   padding: 1rem 0rem 1rem 0rem;
 }
 
+body {
+  display: row;
+}
+p {
+  color: black;
+}
 .form-control {
   padding: .75rem 1rem;
 }
@@ -28,9 +34,6 @@ h4 {
   height: 125px;
 }
 
-/* button {
-  
-} */
 
 .cityName {
   font-weight: bold!important;
@@ -44,6 +47,11 @@ h4 {
 #weather {
   background-color: rgb(235, 237, 222)!important;
 }
+
+/* .card {
+  display:flex;
+  grid:inline-flex;
+} */
 
 #cityInfo,
 #uvIndexColor,
@@ -62,6 +70,9 @@ li {
 }
 
 #fiveDay .card {
+  display:grid;
+  justify-content: center;
+  justify-items: stretch;
   border: 5px solid white;
 }
 
