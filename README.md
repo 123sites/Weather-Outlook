@@ -1,4 +1,4 @@
-# 5-Day-Weather-Outlook
+# Weather-Outlook
 ## Description ✏️
 
 - Acceptance Criteria
