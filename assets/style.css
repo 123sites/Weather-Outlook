@@ -41,7 +41,6 @@ p {
   height: 125px;
 }
 
-
 .cityName {
   font-weight: bold!important;
   height: 5rem;
@@ -58,7 +57,13 @@ p {
 #cityInfo,
 #uvIndexColor,
 li {
-  color: #0e0a2b;
+    color: #4D4F53!important;
+}
+  /* color: #0e0a2b bold; */
+
+
+span{
+  color:#0e0a2b;
 }
 
 #searchResults,
@@ -67,15 +72,32 @@ li {
   background-color: #3aa7d2!important;
 }
 
+#cityInfo {
+  background-color:rgb(138, 203, 156)
+}
 #searchResults {
   height: 100vh;
+}
+
+.row {
+  margin: 0%;
+  flex-wrap: nowrap;
+}
+
+.card {
+  background-color: #3aa7d2!important;
 }
 
 #fiveDay .card {
   display:grid;
   justify-content: center;
   justify-items: stretch;
-  border: 5px solid white;
+  border: 1px solid white;
+
+}
+
+#fiveDay {
+  max-width: 10%!important;
 }
 
 #searchHistory li {
