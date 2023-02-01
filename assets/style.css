@@ -23,7 +23,14 @@ h4 {
 
 body {
   display: row;
+  font-family: 'Nunito Sans', sans-serif!important;
+  background-color: #3aa7d2!important;
 }
+
+.btn {
+  padding: 1.375rem 1.40rem;
+}
+
 p {
   color: black;
 }
@@ -45,13 +52,8 @@ p {
 }
 
 #weather {
-  background-color: rgb(235, 237, 222)!important;
+  background-color: rgb(255 255 255)!important;
 }
-
-/* .card {
-  display:flex;
-  grid:inline-flex;
-} */
 
 #cityInfo,
 #uvIndexColor,
@@ -81,8 +83,5 @@ li {
   color: #fafcee;
 }
 
-body {
-  font-family: 'Nunito Sans', sans-serif!important;
-  background-color: #97A6A4;
-}
+
 

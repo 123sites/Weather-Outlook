@@ -20,6 +20,30 @@ var apiKey = "f5ccdbcb01401feaa8efc63bcac3649b"
 var today = moment().format('L');
 var search = [];
 
+/* <input id="" value="Some text..">
+<button id="searchBtn" onclick="javascript:alert('Hello World!')">Button</button>
+
+
+var input = document.getElementById("myInput");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("searchBtn").click();
+  } */
+
+
+
+// $("#form-control").keypress(function(event) {
+//     if (event.keyCode === 13) {
+//         $("#button").click();
+//     }
+// });
+  
+// $("#button").click(function() {
+//     document.getElementById("#searchBtn").innerHTML= `Button clicked after 
+//                                                ENTER button is pressed`
+// });
+
 // functions
 function currentCondition(city) {
     // q parameter: city name, state code and country code.....
