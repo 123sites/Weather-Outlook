@@ -10,6 +10,11 @@ h1 {
   letter-spacing: 3px;
 }
 
+h2 {
+  background-color: #3aa7d2!important;
+  padding: 10px;
+}
+
 h3, h2 {
   color: black, bold;
 } 
@@ -34,7 +39,10 @@ body {
 
 p {
   color: black;
+  font-size: 20px;
 }
+
+
 .form-control {
   padding: .75rem 1rem;
 }
@@ -52,27 +60,27 @@ p {
 }
 
 #weather {
-  background-color: rgb(255 255 255)!important;
+  background-color: white;
+  /* background-color: rgb(244, 242, 211)!important; */
 }
+
 
 #cityInfo,
 #uvIndexColor,
 li {
     color: #242526!important;
     font-size: 20px;
+    font-weight: bold;
 }
-
-
 
 #searchResults,
 #cityInfo
 .card {
   background-color: #3aa7d2!important;
+  border-radius: 20px;
+  border: 10%;
 }
 
-#cityInfo {
-  background-color:rgb(138, 203, 156)
-}
 #searchResults {
   height: 100vh;
 }
@@ -91,7 +99,6 @@ li {
   justify-content: center;
   justify-items: stretch;
   border: 1px solid white;
-
 }
 
 #fiveDay {
@@ -99,7 +106,7 @@ li {
 }
 
 #searchHistory li {
-  background-color: #7d98ac;
+  background-color: #9ec8e6;
   color: #fafcee;
 }
 

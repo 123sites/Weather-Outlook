@@ -38,7 +38,7 @@ input.addEventListener("keypress", function(event) {
 //         $("#button").click();
 //     }
 // });
-  
+
 // $("#button").click(function() {
 //     document.getElementById("#searchBtn").innerHTML= `Button clicked after 
 //                                                ENTER button is pressed`
@@ -48,7 +48,7 @@ input.addEventListener("keypress", function(event) {
 function currentCondition(city) {
     // q parameter: city name, state code and country code.....
     var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
-  
+
     fetch(queryURL)
         .then(function (response) {
             return response.json();
@@ -72,8 +72,8 @@ function currentCondition(city) {
             ${cityWeatherResponse.name} ${today} <img src="${iconURL}" alt="${cityWeatherResponse.weather[0].description}" />
         </h2>
         <p>Temperature: ${cityWeatherResponse.main.temp} °F</p>
+                <p>Wind Speed: ${cityWeatherResponse.wind.speed} MPH</p>
         <p>Humidity: ${cityWeatherResponse.main.humidity}\%</p>
-        <p>Wind Speed: ${cityWeatherResponse.wind.speed} MPH</p>
     `);
 
             $("#cityInfo").append(currentCity);
@@ -94,35 +94,37 @@ function currentCondition(city) {
                         $("#fiveDay").empty();
 
                         for (let i = 1; i < futureResponse.list.length; i++) {
-                            if (futureResponse.list[i].dt_txt.includes("12:00:00")){
-                            var cityInfo = {
-                                date: futureResponse.list[i].dt,
-                                icon: futureResponse.list[i].weather[0].icon,
-                                temp: futureResponse.list[i].main.temp,
-                                humidity: futureResponse.list[i].main.humidity
-                            };
+                            if (futureResponse.list[i].dt_txt.includes("12:00:00")) {
+                                var cityInfo = {
+                                    date: futureResponse.list[i].dt,
+                                    icon: futureResponse.list[i].weather[0].icon,
+                                    temp: futureResponse.list[i].main.temp,
+                                    humidity: futureResponse.list[i].main.humidity
+                                };
 
-                            var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
-                            // Image
-                            var iconURL = `<img src="http://openweathermap.org/img/wn/${cityInfo.icon}.png" alt="${futureResponse.list[i].weather[0].main}" />`;
+                                var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
+                                // Image
+                                var iconURL = `<img src="http://openweathermap.org/img/wn/${cityInfo.icon}.png" alt="${futureResponse.list[i].weather[0].main}" />`;
 
-                            // Displays the date, an icon representation of weather conditions
-                            // with the temperature & humidity
-                            var futureCard = $(`
+                                // Displays the date, an icon representation of weather conditions
+                                // with the temperature & humidity
+                                var futureCard = $(`
                 <div class="pl-3">
-                    <div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;>
+                    <div class="card pl-3 pt-3 mb-3 bg-primary text-dark" style="width: 14rem;>
                         <div class="card-body">
                             <h5>${currDate}</h5>
                             ${iconURL}
                             <p>Temp: ${cityInfo.temp} °F</p>
+                            <p>Wind: ${cityInfo.wind} MPH</p>
                             <p>Humidity: ${cityInfo.humidity}\%</p>
+                            <p>UV Index: ${cityInfo.uvIndex}</p>
                         </div>
                     </div>
                 <div>
             `);
 
-                            $("#fiveDay").append(futureCard);
-                        }
+                                $("#fiveDay").append(futureCard);
+                            }
                         }
                     });
             }
@@ -143,6 +145,7 @@ function currentCondition(city) {
             <p>UV Index: 
                 <span id="uvIndexColor" class="px-2 py-2 rounded">${uvIndex}</span>
             </p>
+            <p>UV condition colors:  Green = low,  Yellow = Moderate,  Orange = High,  Red = Very High,  Violet = Extreme </p> 
         `);
 
                 $("#cityInfo").append(uvIndexP);
@@ -171,7 +174,7 @@ function currentCondition(city) {
 // on "click, it will run "function(event)..."
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
-    var searchHistory = JSON.parse(localStorage.getItem("city"))||[]
+    var searchHistory = JSON.parse(localStorage.getItem("city")) || []
     // input is here???
     var city = $("#enterCity").val().trim();
     currentCondition(city);
