@@ -8,7 +8,7 @@
 // 4) When viewing current weather contions for that city it has the city name, date, 
 //    and icon representation of weather conditions, temperature, humidity, and wind speed.
 // 5) Future weather conditions show: A 5-day forecast that displays the date, 
-//    an icon representation of weather conditions, the temp., wind speed, & humidty.
+//    an icon representation of weather conditions, the temp., wind speed, & humidity.
 // 6) When clicking onto a city in the search history, there's current and future conditions.
 // * Satisfies all of the above acceptance criteria plus the following:
 //     * Uses the OpenWeather API to retrieve weather data.
