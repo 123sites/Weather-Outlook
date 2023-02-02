@@ -99,6 +99,7 @@ function currentCondition(city) {
                                     date: futureResponse.list[i].dt,
                                     icon: futureResponse.list[i].weather[0].icon,
                                     temp: futureResponse.list[i].main.temp,
+                                    wind: futureResponse.list[i].wind.speed,
                                     humidity: futureResponse.list[i].main.humidity
                                 };
 
@@ -117,7 +118,6 @@ function currentCondition(city) {
                             <p>Temp: ${cityInfo.temp} °F</p>
                             <p>Wind: ${cityInfo.wind} MPH</p>
                             <p>Humidity: ${cityInfo.humidity}\%</p>
-                            <p>UV Index: ${cityInfo.uvIndex}</p>
                         </div>
                     </div>
                 <div>
@@ -133,7 +133,53 @@ function currentCondition(city) {
             var lat = cityWeatherResponse.coord.lat;
             var lon = cityWeatherResponse.coord.lon;
             var uviQueryURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+            // function for the future condition
+            // function uviQueryURL(lat, lon) {
+            //    
+            //     fetch(uviQueryURL)
+            //         .then(function (response) {
+            //             return response.json();
+            //         })
 
+            //         .then(function (futureResponse) {
+            //             console.log(futureResponse);
+            //             $("#fiveDay").empty();
+
+            //             for (let i = 1; i < futureResponse.list.length; i++) {
+            //                 if (futureResponse.list[i].dt_txt.includes("12:00:00")) {
+            //                     var cityInfo = {
+            //                         date: futureResponse.list[i].dt,
+            //                         icon: futureResponse.list[i].weather[0].icon,
+            //                         temp: futureResponse.list[i].main.temp,
+            //                         humidity: futureResponse.list[i].main.humidity
+            //                     };
+
+            //                     var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
+            //                     // Image
+            //                     var iconURL = `<img src="http://openweathermap.org/img/wn/${cityInfo.icon}.png" alt="${futureResponse.list[i].weather[0].main}" />`;
+
+            //                     // Displays the date, an icon representation of weather conditions
+            //                     // with the temperature & humidity
+            //                     var futureCard = $(`
+            //     <div class="pl-3">
+            //         <div class="card pl-3 pt-3 mb-3 bg-primary text-dark" style="width: 14rem;>
+            //             <div class="card-body">
+            //                 <h5>${currDate}</h5>
+            //                 ${iconURL}
+            //                 <p>Temp: ${cityInfo.temp} °F</p>
+            //                 <p>Wind: ${cityInfo.wind} MPH</p>
+            //                 <p>Humidity: ${cityInfo.humidity}\%</p>
+            //                 <p>UV Index: ${cityInfo.uvIndex}</p>
+            //             </div>
+            //         </div>
+            //     <div>
+            // `);
+
+            //                     $("#fiveDay").append(futureCard);
+            //                 }
+            //             }
+            //         });
+            // }
             $.ajax({
                 url: uviQueryURL,
                 method: "GET"
@@ -145,26 +191,11 @@ function currentCondition(city) {
             <p>UV Index: 
                 <span id="uvIndexColor" class="px-2 py-2 rounded">${uvIndex}</span>
             </p>
-            <p>UV condition colors:  Green = low,  Yellow = Moderate,  Orange = High,  Red = Very High,  Violet = Extreme </p> 
         `);
 
                 $("#cityInfo").append(uvIndexP);
 
                 futureCondition(lat, lon);
-
-                // UV conditions, by color
-                // https://en.wikipedia.org/wiki/Ultraviolet_index#:~:text=A%20UV%20index%20reading%20of,broad%20spectrum%20SPF%2030%2B%20sunscreen.&text=A%20UV%20index%20reading%20of%206%20to%207%20means%20high,harm%20from%20unprotected%20sun%20exposure.
-                if (uvIndex >= 0 && uvIndex <= 2) {
-                    $("#uvIndexColor").css("background-color", "#green").css("color", "white");
-                } else if (uvIndex >= 3 && uvIndex <= 5) {
-                    $("#uvIndexColor").css("background-color", "#yellow");
-                } else if (uvIndex >= 6 && uvIndex <= 7) {
-                    $("#uvIndexColor").css("background-color", "#orange");
-                } else if (uvIndex >= 8 && uvIndex <= 10) {
-                    $("#uvIndexColor").css("background-color", "#red").css("color", "white");
-                } else {
-                    $("#uvIndexColor").css("background-color", "#violet").css("color", "white");
-                };
             });
         });
 }
@@ -192,10 +223,38 @@ $("#searchBtn").on("click", function (event) {
     console.log(searchHistory);
 });
 
+function loadUp() {
+    var searchHistory = JSON.parse(localStorage.getItem("city")) || []
+    if (searchHistory.length > 0) {
+        for (var i = 0; i < searchHistory.length; i++) {
+            var searchedCity = $(`
+            <li class="list">${searchHistory[i]}</li>
+            `);
+            $("#searchHistory").append(searchedCity);
+        }
+    }
+}
+loadUp();
+
+// Get the input field
+var input = document.getElementById("enterCity");
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function (event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("searchBtn").click();
+    }
+});
+
 // When click city in search history = current & future conditions for it.
-$(document).on("click", ".list", function () {
+$(".list").on("click", function () {
     // retrieves the text onclick
     var city = $(this).text();
+    console.log(city);
     currentCondition(city);
 });
 
