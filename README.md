@@ -26,12 +26,10 @@ The link to the Weather-Outlook-For-Travel is at:
 [Weather-Outlook-For-Travel Link](https://123sites.github.io/Weather-Outlook-For-Travel/)
 
 ## GIF Demonstration of How it Works 🎯
-[Click here to see the GIPHY GIF](https://media.giphy.com/media/uofF1R0AFno4ktkGhQ/giphy.gif)
 
-[Click here to see the mp4 GIF](./assets/images/Weather%20Outlook.mp4)
+[Click here to see the Screentastify GIF](https://watch.screencastify.com/v/k5x95qksA9JoYDz6EF9p)
 
-[Click here to see the Screentastify GIF](https://watch.screencastify.com/v/S3teHyTpGl0yCqc5bIdu)
-
+[Click here to see the linked GIF](./assets/images/Weather%20Outlook.gif)
 ## Credits 👈
 
 When I had trouble with this project, I first tried to problem-solve it myself.  I used Google, YouTube, asked my instructor, his TA's, and/or reached out to a tutor.  
