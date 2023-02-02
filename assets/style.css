@@ -1,5 +1,5 @@
 * {
-  font-family: 'Nunito Sans', sans-serif!important;
+  font-family: 'Nunito Sans', sans-serif !important;
 }
 
 h1 {
@@ -9,26 +9,30 @@ h1 {
 }
 
 h2 {
-  background-color: #3aa7d2!important;
-  padding: 10px;
+  background-color: #3aa7d2 !important;
+  padding: 2.5px;
 }
 
-h3, h2 {
+h3,
+h2 {
   color: black, bold;
-} 
+}
 
-h1, h4, h5, p {
+h1,
+h4,
+h5,
+p {
   color: #fafcee;
 }
 
 h4 {
   font-size: 2rem;
-  padding: 1rem 0rem 1rem 0rem;
+  padding: .5rem 0rem .5rem .5rem;
 }
 
 body {
   display: row;
-  background-color: #3aa7d2!important;
+  background-color: #3aa7d2 !important;
 }
 
 .btn {
@@ -41,7 +45,7 @@ p {
 }
 
 .form-control {
-  padding: .75rem 1rem;
+  padding: .75rem .5rem;
 }
 
 .navbar {
@@ -49,12 +53,14 @@ p {
 }
 
 .cityName {
-  font-weight: bold!important;
+  font-weight: bold !important;
   height: 5rem;
 }
 
 #weatherContent {
   display: none;
+  padding: 2.5px;
+  margin-right: 5px;
 }
 
 #weather {
@@ -64,15 +70,14 @@ p {
 #cityInfo,
 #uvIndexColor,
 li {
-    color: #242526!important;
-    font-size: 20px;
-    font-weight: bold;
+  color: #242526 !important;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 #searchResults,
-#cityInfo
-.card {
-  background-color: #3aa7d2!important;
+#cityInfo .card {
+  background-color: #3aa7d2 !important;
   border-radius: 20px;
   border: 10%;
 }
@@ -87,18 +92,19 @@ li {
 }
 
 .card {
-  background-color: #3aa7d2!important;
+  background-color: #3aa7d2 !important;
 }
 
 #fiveDay .card {
-  display:grid;
+  display: grid;
   justify-content: center;
   border: 1px solid white;
+  padding: 5px;
 }
 
 #fiveDay {
-  max-width: 10%!important;
-  max-height: 10%!important
+  max-width: 10% !important;
+  max-height: 10% !important;
 }
 
 #searchHistory li {
@@ -108,3 +114,114 @@ li {
 
 
 
+
+@media screen and (max-width: 600px) {
+  #fiveDay {
+    display: inline-block;
+    flex-wrap: wrap;
+    max-width: 5%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .card,
+  #cityInfo {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0px;
+    padding: 0px;
+
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form-control {
+    padding: .75rem 9.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .btn {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .75rem 9.5rem;
+
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #weather {
+    padding-top: 25px;
+    margin: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #searchResults {
+    display: inline-block;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    flex-direction: column;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+}
+
+@media screen and (max-width: 600px) {
+  p {
+    display: inline-block;
+    margin: 6px;
+    padding: 0px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  h2,
+  h3,
+  h4
+  .currentCity {
+    display: flex;
+    flex-direction: column;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+ #searchResults {
+    height: 0px;
+    padding-top: 10px;
+    width: 100%!important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .input,
+  .row {
+    display: block;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 20px;
+    padding: 0px;
+    max-width: 100%;
+  }
+}
