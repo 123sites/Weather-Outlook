@@ -1,18 +1,20 @@
 // - Acceptance Criteria
-// I made a weather dashboard that would run in the browser and feature dynamically updated HTML and CSS.  
-// It shows the weather outlook for multiple cities, so anyone using it could plan a trip accordingly.
+// I made a weather dashboard that would run in the browser and feature dynamically 
+// updated HTML and CSS.  It shows the weather outlook for multiple cities for 5 days.  
+// I used [OpenWeather API](https://openweathermap.org/api) to get the weather information 
+// and used local storage to store the information. In addition:
 
 // 1) It has a weather dashoard with form inputs.
 // 2) When searching for a city, there's current and future conditions.
 // 3) That city is added to the search history.
-// 4) When viewing current weather contions for that city it has the city name, date, 
+// 4) When viewing current weather conditions for that city it has the its name, date, 
 //    and icon representation of weather conditions, temperature, humidity, and wind speed.
 // 5) Future weather conditions show: A 5-day forecast that displays the date, 
 //    an icon representation of weather conditions, the temp., wind speed, & humidity.
 // 6) When clicking onto a city in the search history, there's current and future conditions.
-// * Satisfies all of the above acceptance criteria plus the following:
-//     * Uses the OpenWeather API to retrieve weather data.
-//     * Uses `localStorage` to store persistent data.
+//    This satisfies all of the above acceptance criteria plus the following:
+//    * Uses the OpenWeather API to retrieve weather data.
+//    * Uses localStorage to store persistent data.
 
 // var
 var apiKey = "f5ccdbcb01401feaa8efc63bcac3649b"
