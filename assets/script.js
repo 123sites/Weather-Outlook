@@ -19,54 +19,22 @@ var apiKey = "f5ccdbcb01401feaa8efc63bcac3649b"
 // var today = dayjs();
 var today = moment().format('L');
 var search = [];
-
-/* <input id="" value="Some text..">
-<button id="searchBtn" onclick="javascript:alert('Hello World!')">Button</button>
-
-
-var input = document.getElementById("myInput");
-input.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    document.getElementById("searchBtn").click();
-  } */
-
-
-
-// $("#form-control").keypress(function(event) {
-//     if (event.keyCode === 13) {
-//         $("#button").click();
-//     }
-// });
-
-// $("#button").click(function() {
-//     document.getElementById("#searchBtn").innerHTML= `Button clicked after 
-//                                                ENTER button is pressed`
-// });
-
-// functions
+// current and future conditions
 function currentCondition(city) {
     // q parameter: city name, state code and country code.....
     var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
-
     fetch(queryURL)
         .then(function (response) {
             return response.json();
         })
-
         .then(function (cityWeatherResponse) {
-            console.log(cityWeatherResponse);
-
+            // console.log(cityWeatherResponse);
             $("#weather").css("display", "block");
             // clears-out the information
             $("#cityInfo").empty();
 
             var iconCode = cityWeatherResponse.weather[0].icon;
             var iconURL = `http://openweathermap.org/img/wn/${iconCode}.png`;
-
-            // When get current weather conditions for that city,
-            // See city name, date, & icon representation of weather conditions:
-            // temp., humidity, & wind speed
             var currentCity = $(`
         <h2 id="currentCity">
             ${cityWeatherResponse.name} ${today} <img src="${iconURL}" alt="${cityWeatherResponse.weather[0].description}" />
@@ -75,24 +43,18 @@ function currentCondition(city) {
                 <p>Wind Speed: ${cityWeatherResponse.wind.speed} MPH</p>
         <p>Humidity: ${cityWeatherResponse.main.humidity}\%</p>
     `);
-
             $("#cityInfo").append(currentCity);
-
             // function for the future condition
             function futureCondition(lat, lon) {
-
                 // 5-day forecast
                 var futureURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
-
                 fetch(futureURL)
                     .then(function (response) {
                         return response.json();
                     })
-
                     .then(function (futureResponse) {
                         console.log(futureResponse);
                         $("#fiveDay").empty();
-
                         for (let i = 1; i < futureResponse.list.length; i++) {
                             if (futureResponse.list[i].dt_txt.includes("12:00:00")) {
                                 var cityInfo = {
@@ -102,13 +64,8 @@ function currentCondition(city) {
                                     wind: futureResponse.list[i].wind.speed,
                                     humidity: futureResponse.list[i].main.humidity
                                 };
-
                                 var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
-                                // Image
                                 var iconURL = `<img src="http://openweathermap.org/img/wn/${cityInfo.icon}.png" alt="${futureResponse.list[i].weather[0].main}" />`;
-
-                                // Displays the date, an icon representation of weather conditions
-                                // with the temperature & humidity
                                 var futureCard = $(`
                 <div class="pl-3">
                     <div class="card pl-3 pt-3 mb-3 bg-primary text-dark" style="width: 14rem;>
@@ -122,64 +79,15 @@ function currentCondition(city) {
                     </div>
                 <div>
             `);
-
                                 $("#fiveDay").append(futureCard);
                             }
                         }
                     });
             }
-
             // UV index
             var lat = cityWeatherResponse.coord.lat;
             var lon = cityWeatherResponse.coord.lon;
             var uviQueryURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-            // function for the future condition
-            // function uviQueryURL(lat, lon) {
-            //    
-            //     fetch(uviQueryURL)
-            //         .then(function (response) {
-            //             return response.json();
-            //         })
-
-            //         .then(function (futureResponse) {
-            //             console.log(futureResponse);
-            //             $("#fiveDay").empty();
-
-            //             for (let i = 1; i < futureResponse.list.length; i++) {
-            //                 if (futureResponse.list[i].dt_txt.includes("12:00:00")) {
-            //                     var cityInfo = {
-            //                         date: futureResponse.list[i].dt,
-            //                         icon: futureResponse.list[i].weather[0].icon,
-            //                         temp: futureResponse.list[i].main.temp,
-            //                         humidity: futureResponse.list[i].main.humidity
-            //                     };
-
-            //                     var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
-            //                     // Image
-            //                     var iconURL = `<img src="http://openweathermap.org/img/wn/${cityInfo.icon}.png" alt="${futureResponse.list[i].weather[0].main}" />`;
-
-            //                     // Displays the date, an icon representation of weather conditions
-            //                     // with the temperature & humidity
-            //                     var futureCard = $(`
-            //     <div class="pl-3">
-            //         <div class="card pl-3 pt-3 mb-3 bg-primary text-dark" style="width: 14rem;>
-            //             <div class="card-body">
-            //                 <h5>${currDate}</h5>
-            //                 ${iconURL}
-            //                 <p>Temp: ${cityInfo.temp} °F</p>
-            //                 <p>Wind: ${cityInfo.wind} MPH</p>
-            //                 <p>Humidity: ${cityInfo.humidity}\%</p>
-            //                 <p>UV Index: ${cityInfo.uvIndex}</p>
-            //             </div>
-            //         </div>
-            //     <div>
-            // `);
-
-            //                     $("#fiveDay").append(futureCard);
-            //                 }
-            //             }
-            //         });
-            // }
             $.ajax({
                 url: uviQueryURL,
                 method: "GET"
@@ -199,10 +107,7 @@ function currentCondition(city) {
             });
         });
 }
-
-// add on click event listener 
-// jQuery .on that wires-up a click handler, when it does not exist yet.
-// on "click, it will run "function(event)..."
+// searchBtn click event & localStorage
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     var searchHistory = JSON.parse(localStorage.getItem("city")) || []
@@ -216,13 +121,12 @@ $("#searchBtn").on("click", function (event) {
         `);
         $("#searchHistory").append(searchedCity);
     };
-
-    // Below stores the data
-    // localStorage & searchHistory
+    // Below stores the data, localStorage & searchHistory
     localStorage.setItem("city", JSON.stringify(searchHistory));
     console.log(searchHistory);
 });
 
+// Below is for getting to the site and accessing cities in localStorage.
 function loadUp() {
     var searchHistory = JSON.parse(localStorage.getItem("city")) || []
     if (searchHistory.length > 0) {
@@ -238,7 +142,6 @@ loadUp();
 
 // Get the input field
 var input = document.getElementById("enterCity");
-
 // Execute a function when the user presses a key on the keyboard
 input.addEventListener("keypress", function (event) {
     // If the user presses the "Enter" key on the keyboard
@@ -254,19 +157,19 @@ input.addEventListener("keypress", function (event) {
 $(".list").on("click", function () {
     // retrieves the text onclick
     var city = $(this).text();
-    console.log(city);
+    // console.log(city);
     currentCondition(city);
 });
 
 // When open the weather dashboard = last searched city forecast
 $(document).ready(function () {
-    // Retrieves the "city" data an stores it into localStorage:
+    // Retrieves the "city" data and stores it into localStorage:
     var shArr = JSON.parse(localStorage.getItem("city"));
-
+// shArr = searchHistory array
     if (shArr !== null) {
         var lastSearchedIndex = shArr.length - 1;
         var lastSearchedCity = shArr[lastSearchedIndex];
         currentCondition(lastSearchedCity);
-        console.log(`Last searched city: ${lastSearchedCity}`);
+        // console.log(`Last searched city: ${lastSearchedCity}`);
     }
 });
