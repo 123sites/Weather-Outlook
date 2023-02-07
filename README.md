@@ -20,10 +20,10 @@ I made a weather dashboard that would run in the browser and feature dynamically
 
 There weren't any installations with this project.  
 You can find the link to the repository at:
-[Repository link](https://github.com/123sites/Weather-Outlook-For-Travel.git)
+[Repository link](https://github.com/123sites/For-Travel.git)
 
 The link to the Weather-Outlook-For-Travel is at:
-[Weather-Outlook-For-Travel Link](https://123sites.github.io/Weather-Outlook-For-Travel/)
+[Weather-Outlook-For-Travel Link](https://123sites.github.io/For-Travel/)
 
 ## GIF Demonstration of How it Works 🎯
 
