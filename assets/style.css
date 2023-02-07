@@ -87,12 +87,14 @@ li {
 }
 
 .row {
-  margin: 0%;
   flex-wrap: nowrap;
 }
 
 .card {
   background-color: #3aa7d2 !important;
+  max-width: 11rem;
+  max-height: 17rem;
+  padding: 2px;
 }
 
 #fiveDay .card {
@@ -112,14 +114,33 @@ li {
   color: #fafcee;
 }
 
-
-
-
 @media screen and (max-width: 600px) {
-  #fiveDay {
+  p {
     display: inline-block;
+    margin: 6px;
+    padding: 0px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+div {
+  max-width: 100vw;
+}
+
+
+@media screen and (max-width: 800px) {
+  #fiveDay {
+    display: flex;
     flex-wrap: wrap;
     max-width: 5%;
+    padding: 40px;
+    margin: 0px;
+    text-align: center;
+    justify-content: center;
   }
 }
 
@@ -171,19 +192,6 @@ li {
 }
 
 @media screen and (max-width: 600px) {
-  p {
-    display: inline-block;
-    margin: 6px;
-    padding: 0px;
-    flex-wrap: wrap;
-    flex-direction: column;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 600px) {
 
   h2,
   h3,
@@ -217,11 +225,19 @@ li {
 }
 
 @media screen and (max-width: 600px) {
+  body {
+margin: -70px;
+  }
+}
+
+@media screen and (max-width: 600px) {
   h1 {
     display: flex;
     flex-wrap: nowrap;
-    margin: 20px;
+    margin: 10px;
     padding: 0px;
     max-width: 100%;
+    justify-content: center;
+
   }
 }

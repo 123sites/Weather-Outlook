@@ -57,7 +57,7 @@ function currentCondition(city) {
                     .then(function (futureResponse) {
                         console.log(futureResponse);
                         $("#fiveDay").empty();
-                        for (let i = 1; i < futureResponse.list.length; i++) {
+                        for (let i = 0; i < futureResponse.list.length; i++) {
                             if (futureResponse.list[i].dt_txt.includes("12:00:00")) {
                                 var cityInfo = {
                                     date: futureResponse.list[i].dt,
@@ -113,7 +113,7 @@ function currentCondition(city) {
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     var searchHistory = JSON.parse(localStorage.getItem("city")) || []
-    // input is here???
+    // input
     var city = $("#enterCity").val().trim();
     currentCondition(city);
     if (!searchHistory.includes(city)) {
