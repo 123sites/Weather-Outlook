@@ -27,9 +27,15 @@ function currentCondition(city) {
     var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
     fetch(queryURL)
         .then(function (response) {
+            console.log(response);
+            if(response.status==404){
+                alert(response.statusText)
+                return
+            }
             return response.json();
         })
         .then(function (cityWeatherResponse) {
+
             // console.log(cityWeatherResponse);
             $("#weather").css("display", "block");
             // clears-out the information
@@ -119,7 +125,7 @@ $("#searchBtn").on("click", function (event) {
     if (!searchHistory.includes(city)) {
         searchHistory.push(city);
         var searchedCity = $(`
-        <li class="list">${city}</li>
+        <li class="list" onclick="savedSearch(event)">${city}</li>
         `);
         $("#searchHistory").append(searchedCity);
     };
@@ -134,13 +140,18 @@ function loadUp() {
     if (searchHistory.length > 0) {
         for (var i = 0; i < searchHistory.length; i++) {
             var searchedCity = $(`
-            <li class="list">${searchHistory[i]}</li>
+            <li class="list" onclick="savedSearch(event)" >${searchHistory[i]}</li>
             `);
             $("#searchHistory").append(searchedCity);
         }
     }
 }
 loadUp();
+
+function savedSearch (event){
+//   console.log(event.target.textContent)
+  currentCondition(event.target.textContent);
+}
 
 // Get the input field
 var input = document.getElementById("enterCity");
@@ -153,14 +164,6 @@ input.addEventListener("keypress", function (event) {
         // Trigger the button element with a click
         document.getElementById("searchBtn").click();
     }
-});
-
-// When click city in search history = current & future conditions for it.
-$(".list").on("click", function () {
-    // retrieves the text onclick
-    var city = $(this).text();
-    // console.log(city);
-    currentCondition(city);
 });
 
 // When open the weather dashboard = last searched city forecast

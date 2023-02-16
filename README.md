@@ -25,11 +25,16 @@ You can find the link to the repository at:
 The link to the Weather-Outlook-For-Travel is at:
 [Weather-Outlook-For-Travel Link](https://123sites.github.io/For-Travel/)
 
-## GIF Demonstration of How it Works 🎯
+## GIF Demonstration of How it Works & Screenshot 🎯
 
 [Click here to see the Screentastify GIF](https://watch.screencastify.com/v/k5x95qksA9JoYDz6EF9p)
 
 [Click here to see the linked GIF](./assets/images/Weather%20Outlook.gif)
+
+[Click here to see a screenshot](./assets/images/Weather-Outlook.png)
+
+
+
 ## Credits 👈
 
 When I had trouble with this project, I first tried to problem-solve it myself.  I used Google, YouTube, asked my instructor, his TA's, and/or reached out to a tutor.  
