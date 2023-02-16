@@ -42,7 +42,7 @@ When I had trouble with this project, I first tried to problem-solve it myself. 
 ## License 📝
 
 The MIT license is in the GitHub repository.  
-[MIT License](https://github.com/123sites/Weather-Outlook-For-Travel/blob/main/LICENSE)
+[MIT License](https://github.com/123sites/For-Travel/blob/main/LICENSE)
 
 ## Badges 🏆
 
