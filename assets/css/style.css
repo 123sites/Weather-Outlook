@@ -10,12 +10,20 @@ h1 {
 
 h2 {
   background-color: #3aa7d2 !important;
-  padding: 2.5px;
+  padding: 12px 0px 0px 6px;
+
 }
 
 h3,
 h2 {
-  color: black, bold;
+  display: flex;
+  color: black;
+  font-weight: bolder;
+  border-radius: 0.25rem !important;
+}
+
+h3 {
+  margin-top: 10px;
 }
 
 h1,
@@ -30,26 +38,32 @@ h4 {
   padding: .5rem 0rem .5rem .5rem;
 }
 
+div {
+  max-width: 100vw;
+}
+
 body {
   display: row;
   background-color: #3aa7d2 !important;
+}
+
+p {
+  display: flex;
+  color: black;
+  font-size: 20px;
 }
 
 .btn {
   padding: 1.375rem 1.40rem;
 }
 
-p {
-  color: black;
-  font-size: 20px;
-}
-
 .form-control {
-  padding: .75rem .5rem;
+  padding: .75rem 1.5rem;
 }
 
 .navbar {
-  height: 125px;
+  max-height: 125px;
+  max-width: 100vw;
 }
 
 .cityName {
@@ -87,6 +101,7 @@ li {
 }
 
 .row {
+  display: flex;
   flex-wrap: nowrap;
 }
 
@@ -99,9 +114,10 @@ li {
 
 #fiveDay .card {
   display: grid;
-  justify-content: center;
+  justify-items: center;
   border: 1px solid white;
   padding: 5px;
+  border-radius: 1.25rem !important
 }
 
 #fiveDay {
@@ -109,135 +125,46 @@ li {
   max-height: 10% !important;
 }
 
-#searchHistory li {
+#searchHistory {
   background-color: #9ec8e6;
   color: #fafcee;
+  max-width: 250rem;
+  border-radius: 0.25rem !important
 }
 
-@media screen and (max-width: 600px) {
-  p {
-    display: inline-block;
-    margin: 6px;
-    padding: 0px;
-    flex-wrap: wrap;
-    flex-direction: column;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
+@media screen and (max-width: 500px) {
 
-div {
-  max-width: 100vw;
-}
-
-
-@media screen and (max-width: 800px) {
-  #fiveDay {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 5%;
-    padding: 40px;
-    margin: 0px;
-    text-align: center;
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 600px) {
-
-  .card,
-  #cityInfo {
-    display: flex;
-    flex-wrap: nowrap;
-    margin: 0px;
-    padding: 0px;
-
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .form-control {
-    padding: .75rem 9.5rem;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .btn {
-    display: flex;
-    flex-wrap: wrap;
-    padding: .75rem 9.5rem;
-
-  }
-}
-
-@media screen and (max-width: 600px) {
-  #weather {
-    padding-top: 25px;
-    margin: 15px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  #searchResults {
-    display: inline-block;
-    flex-wrap: nowrap;
-    max-width: 100%;
-    flex-direction: column;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-
-  }
-}
-
-@media screen and (max-width: 600px) {
-
-  h2,
-  h3,
-  h4
-  .currentCity {
-    display: flex;
-    flex-direction: column;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 600px) {
- #searchResults {
-    height: 0px;
-    padding-top: 10px;
-    width: 100%!important;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .input,
+  #weather,
+  #searchHistory,
+  #fiveDay,
+  #searchResult,
+  #fiveDay,
   .row {
     display: block;
-    margin: 0px;
+    /* max-height: 100%; */
+    max-height: 50%;
     justify-content: center;
     align-items: center;
-    padding: 0px;
   }
 }
 
-@media screen and (max-width: 600px) {
-  body {
-margin: -70px;
-  }
-}
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   h1 {
     display: flex;
-    flex-wrap: nowrap;
-    margin: 10px;
-    padding: 0px;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    margin-right: 100px;
+
+  }
+}
+
+@media screen and (max-width: 500px) {
+  div {
+    display: block;
+    max-height: 100%;
     max-width: 100%;
     justify-content: center;
-
+    align-items: center;
   }
 }
