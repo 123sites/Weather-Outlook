@@ -105,7 +105,7 @@ function currentCondition(city) {
                 var uvIndex = uviResponse.value;
                 var uvIndexP = $(`
             <p>UV Index: 
-                <span id="uvIndexColor" class="px-2 py-2 rounded">${uvIndex}</span>
+                <span id="uvIndexColor" class="px-0 py-0 rounded">${uvIndex}</span>
             </p>
         `);
 

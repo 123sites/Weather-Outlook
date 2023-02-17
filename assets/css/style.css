@@ -6,6 +6,7 @@ h1 {
   font-size: 50px;
   font-weight: 400;
   letter-spacing: 3px;
+  align-items: center;
 }
 
 h2 {
@@ -96,10 +97,6 @@ li {
   border: 10%;
 }
 
-#searchResults {
-  height: 100vh;
-}
-
 .row {
   display: flex;
   flex-wrap: nowrap;
@@ -132,7 +129,7 @@ li {
   border-radius: 0.25rem !important
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 576px) {
 
   #weather,
   #searchHistory,
@@ -141,25 +138,27 @@ li {
   #fiveDay,
   .row {
     display: block;
-    /* max-height: 100%; */
     max-height: 50%;
     justify-content: center;
     align-items: center;
   }
 }
 
-@media screen and (max-width: 1000px) {
-  h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
-    margin-right: 100px;
+@media screen and (max-width: 992px) {
 
+  #weather {
+   width: 100%;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 992px) {
+  h1 {
+    display: flex;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
   div {
     display: block;
     max-height: 100%;
