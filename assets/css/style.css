@@ -62,11 +62,6 @@ p {
   padding: .75rem 1.5rem;
 }
 
-.navbar {
-  max-height: 125px;
-  max-width: 100vw;
-}
-
 .cityName {
   font-weight: bold !important;
   height: 5rem;
@@ -97,7 +92,7 @@ li {
   border: 10%;
 }
 
-.row {
+#forecast {
   display: flex;
   flex-wrap: nowrap;
 }
@@ -106,21 +101,19 @@ li {
   background-color: #3aa7d2 !important;
   max-width: 11rem;
   max-height: 17rem;
-  padding: 2px;
 }
 
-#fiveDay .card {
+#fiveDay, .card {
   display: grid;
-  justify-items: center;
   border: 1px solid white;
   padding: 5px;
   border-radius: 1.25rem !important
 }
 
-#fiveDay {
+/* #fiveDay {
   max-width: 10% !important;
   max-height: 10% !important;
-}
+} */
 
 #searchHistory {
   background-color: #9ec8e6;
@@ -129,41 +122,10 @@ li {
   border-radius: 0.25rem !important
 }
 
-@media screen and (max-width: 576px) {
-
-  #weather,
-  #searchHistory,
-  #fiveDay,
-  #searchResult,
-  #fiveDay,
-  .row {
-    display: block;
-    max-height: 50%;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media screen and (max-width: 992px) {
-
-  #weather {
-   width: 100%;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  h1 {
-    display: flex;
-    max-width: 100%;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  div {
-    display: block;
-    max-height: 100%;
-    max-width: 100%;
-    justify-content: center;
-    align-items: center;
+/* This centers the title "Weather Outlook." */
+@media screen and (max-width: 375px) {
+  #weather, .title {
+   width: 100vw;
+   justify-content: center;
   }
 }
