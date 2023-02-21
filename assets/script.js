@@ -75,18 +75,18 @@ function currentCondition(city) {
                                 var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
                                 var iconURL = `<img src="http://openweathermap.org/img/wn/${cityInfo.icon}.png" alt="${futureResponse.list[i].weather[0].main}" />`;
                                 var futureCard = $(`
-                <div class="pl-3">
-                    <div class="card pl-3 pt-3 mb-3 bg-primary text-dark" style="width: 14rem;>
-                        <div class="card-body">
-                            <h5>${currDate}</h5>
-                            ${iconURL}
-                            <p>Temp: ${cityInfo.temp} °F</p>
-                            <p>Wind: ${cityInfo.wind} MPH</p>
-                            <p>Humidity: ${cityInfo.humidity}\%</p>
-                        </div>
-                    </div>
-                <div>
-            `);
+                                    <div class="pl-3">
+                                        <div class="card pl-3 pt-3 mb-3 bg-primary text-dark" style="width: 14rem;">
+                                            <div class="forecast-card-body">
+                                                <h5>${currDate}</h5>
+                                                ${iconURL}
+                                                <p>Temp: ${cityInfo.temp} °F</p>
+                                                <p>Wind: ${cityInfo.wind} MPH</p>
+                                                <p>Humidity: ${cityInfo.humidity}\%</p>
+                                            </div>
+                                        </div>
+                                    <div>
+                                `);
                                 $("#fiveDay").append(futureCard);
                             }
                         }

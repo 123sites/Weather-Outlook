@@ -31,7 +31,9 @@ The link to the Weather-Outlook-For-Travel is at:
 
 [Click here to see the linked GIF](./assets/images/Weather%20Outlook.gif)
 
-[Click here to see a screenshot](./assets/images/Weather-Outlook.png)
+[Click here to see the laptop screenshot](./assets/images/Weather-Outlook.png)
+
+[Click here to see the responsive screenshot](./assets/images/Weather-Outlook.png)
 
 
 
