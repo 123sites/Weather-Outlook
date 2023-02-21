@@ -64,14 +64,13 @@ p {
 }
 
 #weatherContent {
-  /* display: none; */
   padding: 2.5px;
   margin-right: 5px;
 }
 
 #weather {
   background-color: white;
-  height: 100vw;
+  height: 50vw;
 }
 
 #cityInfo,
@@ -140,7 +139,6 @@ li {
 
   #weather {
     height: 175vw;
-
   }
 }
 
