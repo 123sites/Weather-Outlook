@@ -35,8 +35,6 @@ The link to the Weather-Outlook-For-Travel is at:
 
 [Click here to see the responsive screenshot](./assets/images/Updated-Responsive-View.png)
 
-
-
 ## Credits 👈
 
 When I had trouble with this project, I first tried to problem-solve it myself.  I used Google, YouTube, asked my instructor, his TA's, and/or reached out to a tutor.  
