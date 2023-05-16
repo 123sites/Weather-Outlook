@@ -53,6 +53,7 @@ function currentCondition(city) {
     `);
 
       $("#cityInfo").append(currentCity);
+
       // function for the future condition
       function futureCondition(lat, lon) {
         // 5-day forecast
@@ -76,9 +77,9 @@ function currentCondition(city) {
                 var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
                 var iconURL = `<img src="http://openweathermap.org/img/wn/${cityInfo.icon}.png" alt="${futureResponse.list[i].weather[0].main}" />`;
                 var futureCard = $(`
-                                    <div class="pl-3">
-                                        <div class="card pl-3 pt-3 mb-3 bg-primary text-dark" style="width: 14rem;">
-                                            <div class="forecast-card-body">
+                                    <div class="center">
+                                        <div class="card bg-primary text-dark px-1 py-1 mt-2 mb-2">
+                                            <div class="forecast-card-body shadow-md">
                                                 <h5>${currDate}</h5>
                                                 ${iconURL}
                                                 <p>Temp: ${cityInfo.temp} °F</p>
@@ -106,9 +107,23 @@ function currentCondition(city) {
         var uvIndex = uviResponse.value;
         var uvIndexP = $(`
             <p>UV Index: 
-                <span id="uvIndexColor" class="px-0 py-0 rounded">${uvIndex}</span>
+                <span id="uvIndexColor" class="uvIndexColor px-2 rounded">${uvIndex}</span>
             </p>
         `);
+
+        // https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index
+        // 
+        if (uviResponse.value >= 0 && uviResponse <= 2) {
+          uvIndexP.addClass("low").append(" Low");
+        } else if (uviResponse.value > 2 && uviResponse.value <= 5) {
+          uvIndexP.addClass("moderate").append(" Moderate");
+        } else if (uviResponse.value > 5 && uviResponse.value <= 7) {
+          uvIndexP.addClass("high").append(" High");
+        } else if (uviResponse.value > 7 && uviResponse.value <= 10) {
+          uvIndexP.addClass("veryHigh").append(" Very High");
+        } else if (uviResponse.value > 10) {
+          uvIndexP.addClass("extreme").append(" Extreme");
+        }
 
         $("#cityInfo").append(uvIndexP);
 

@@ -25,18 +25,24 @@
 
   <body>
     <div class="container-fluid">
-      <div class="row navbar navbar-dark bg-dark">
-        <div class="col-12 pb-0 pt-1 col-sm-12 text-center">
-          <!-- Weather Outlook at the top -->
+      <div>
+        <div class="row navbar navbar-dark bg-dark">
+          <div class="col-12 pb-0 pt-1 col-sm-12 text-center">
+            <!-- Weather Outlook at the top -->
 
-          <h1 class="title">Weather Outlook</h1>
+            <h1 class="title">Weather Outlook</h1>
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3 col-sm-12 pb-2 bg-light" id="searchResults">
+        <div class="col-md-2 col-sm-12 pb-2 bg-light" id="searchResults">
           <div class="row">
             <!-- City Search -->
-            <h4 class="mt-1 mb-1 rounded-sm px-3 fw-bold shadow-md">City Search:</h4>
+            <h4
+              class="mt-1 mb-1 rounded-sm px-3 fw-bold shadow-md justify-content-center"
+            >
+              City Search Forecast:
+            </h4>
           </div>
           <div class="row">
             <div class="col-11 px-3">
@@ -65,22 +71,25 @@
             </div>
           </div>
         </div>
+
         <div id="weather" class="col-md-9 col-sm-12 pt-2">
           <div>
-            <div id="cityInfo"></div>
-          </div>
-
-          <!-- currentCity with p-->
-          <div class="fluid-container">
-          <!-- <div class="row pb-2 pt-1"> -->
-            <div id="forecast" class="col-md-9 col-sm-12 m-1 fs-2 fw-1">
-              <h3>5-Day Forecast:</h3>
+            <!-- Today's weather and date -->
+            <div>
+              <div id="cityInfo"></div>
             </div>
-          </div>
 
+            <!-- currentCity -->
+            <div class="justify-content-center">
+              <div id="forecast" class="col-md-3 col-sm-12 m-1 fs-3 fw-3">
+                <h3>5-Day Forecast:</h3>
+              </div>
+            </div>
+            <!-- End 5-Day Forecast title div -->
+          </div>
           <div id="fiveDay">
-            <div class="row justify-content-center" id="forecastRow">
-              <!-- 5 day forecast -->
+            <div id="forecastRow">
+              <!-- 5 day forecast cards -->
             </div>
           </div>
         </div>
