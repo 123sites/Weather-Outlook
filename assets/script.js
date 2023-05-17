@@ -43,9 +43,11 @@ function currentCondition(city) {
       var iconCode = cityWeatherResponse.weather[0].icon;
       var iconURL = `http://openweathermap.org/img/wn/${iconCode}.png`;
       var currentCity = $(`
-      <div class="cityHeader">
+      <div class="cityHeader justify-content-center">
         <h2 id="currentCity">${cityWeatherResponse.name} ${today}</h2>
+        <div class="justify-content-center>
         <img src="${iconURL}" alt="${cityWeatherResponse.weather[0].description}" />
+        </div>
       </div>
         <p>Temperature: ${cityWeatherResponse.main.temp} °F</p>
                 <p>Wind Speed: ${cityWeatherResponse.wind.speed} MPH</p>
