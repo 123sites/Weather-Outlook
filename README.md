@@ -23,17 +23,15 @@ You can find the link to the repository at:
 [Repository link](https://github.com/123sites/Weather-Outlook-For-Travel.git)
 
 The link to the Weather-Outlook-For-Travel is at:
-[Weather-Outlook-For-Travel Link](https://123sites.github.io/Weather-Outlook-For-Travel/)
+[Weather-Outlook-For-Travel Link](https://123sites.github.io/Weather-Outlook/)
 
 ## GIF Demonstration of How it Works & Screenshot 🎯
 
-[Click here to see the Screentastify GIF](https://watch.screencastify.com/v/k5x95qksA9JoYDz6EF9p)
+![Click here to see the Screentastify GIF](https://watch.screencastify.com/v/k5x95qksA9JoYDz6EF9p)
 
-[Click here to see the linked GIF](./assets/images/Weather%20Outlook.gif)
+![Click here to see the linked GIF](./assets/images/Weather%20Outlook.gif)
 
-[Click here to see the laptop screenshot](./assets/images/weatherImage.png)
-
-[Click here to see the responsive screenshot](./assets/images/weatherResponsive.png)
+![Click here to see the laptop screenshot](./assets/images/weatherImage.png)
 
 ## Credits 👈
 
